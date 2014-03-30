@@ -11,7 +11,7 @@ if (!localStorage in g) {
 }
 
 
-$.fn.memento = function(actionOrOptions) {
+$.fn.formalia = function(actionOrOptions) {
 
 	function restoreForm(form, o) {
 		var UI = o.UIC(form);
