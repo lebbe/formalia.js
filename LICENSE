@@ -13,7 +13,12 @@ The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
 You do _not_ have to include the above copyright notice and this permission in
-the minified version of this plugin.
+the minified version of this plugin. You can not make your own minified version
+for this purpose, but are free to use "formalia.min.js" located on the github
+repository https://github.com/lebbe/formalia.js. If you want to make your own
+changes, and minify the result, you still have to include the copyright
+notice and this permission in all copies or substantial portions of the
+Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
