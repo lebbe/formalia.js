@@ -1,7 +1,7 @@
 /**
  * formalia.js copyright Lars-Erik Bruce 2014.
  *
- * MIT license.
+ * See license file for license.
  */
 (function($, g) {
 
@@ -36,6 +36,13 @@ $.fn.formalia = function(actionOrOptions) {
 				v = $t.prop('value');
 			cache[n] = v;
 			localStorage.setItem(UI, JSON.stringify(cache));
+		})
+		/**
+		 * When content in form actually is submitted, we no longer
+		 * need to remember/cache the user input.
+		 */
+		.on(o.submitEvent, function(e) {
+			localStorage.removeItem(UI);
 		});
 	}
 
@@ -47,7 +54,12 @@ $.fn.formalia = function(actionOrOptions) {
 		/** Unique Identity Creator **/
 		UIC: function UIC(form) {
 			return $(form).attr('id') + '_' + $(form).attr('name');
-		}
+		},
+		/* You can add your own event to listen on for submit. For instance,
+			you can trigger an event when the server responds with "Everything OK"
+			after a submit, if something went wrong you still want to cache the
+			user input. */
+		submitEvent: 'submit'
 	};
 	if(typeof actionOrOptions === "object")
 		$.extend(options, actionOrOptions);
