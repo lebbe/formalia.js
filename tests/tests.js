@@ -1,4 +1,4 @@
-module('memento.js tests');
+module('formalia.js tests');
 test('Test a simple form', function() {
 	var form =
 		'<form>' +
@@ -9,12 +9,12 @@ test('Test a simple form', function() {
 		'</form>';
 	var $form1 = $(form);
 
-	$form1.memento();
+	$form1.formalia();
 
 	$form1.find('[name=test1]').prop('value', 'Test 1').trigger('change');;
 
 	var $form2 = $(form);
-	$form2.memento();
+	$form2.formalia();
 
 	ok($form1.find('[name=test1]').prop('value') == $form2.find('[name=test1]').prop('value'), 'Passed!');
 });
