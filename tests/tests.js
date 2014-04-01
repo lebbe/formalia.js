@@ -39,3 +39,23 @@ test('Submitting a form removes cache content', function() {
 	ok($form2.find('[name=test1]').prop('value') === '', 'Cached content is cleared on submit.');
 	
 });
+
+test('Test actions performed on form', function() {
+	var form =
+		'<form>' +
+			'<input type="text" name="test1">' +
+			'<input type="text" name="test2">' +
+			'<input type="text" name="test3">' +
+			'<input type="text" name="test4">' +
+		'</form>';
+	var $form1 = $(form);
+
+	$form1.formalia();
+
+	$form1.find('[name=test1]').prop('value', 'Test 1').trigger('change');
+
+	$form1.formalia('reset');
+
+	ok($form1.find('[name=test1]').prop('value') === '', 'Form is reset to default values');
+	
+});

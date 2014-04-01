@@ -6,7 +6,7 @@
 (function($, g) {
 
 if (!localStorage in g) {
-	console.log("Couldt not find localStorage.");
+	console.log('Could not find localStorage.');
 	return;
 }
 
@@ -50,6 +50,21 @@ $.fn.formalia = function(actionOrOptions) {
 		debugger
 	}
 
+	if(typeof actionOrOptions === 'string') {
+		debugger
+		switch (actionOrOptions) {
+			case 'reset':
+			if(this[0].tagName === 'FORM')
+				this.trigger("reset");
+			else
+				this.find('form').each(function() {
+					$(this).trigger("reset");
+				});
+			break;
+		}
+		return;
+	}
+
 	var options = {
 		/** Unique Identity Creator **/
 		UIC: function UIC(form) {
@@ -61,12 +76,12 @@ $.fn.formalia = function(actionOrOptions) {
 			user input. */
 		submitEvent: 'submit'
 	};
-	if(typeof actionOrOptions === "object")
+	if(typeof actionOrOptions === 'object')
 		$.extend(options, actionOrOptions);
 
 	this.each(function() {
 		switch(this.tagName) {
-			case "FORM":
+			case 'FORM':
 				restoreForm(this, options);
 				monitorForm(this, options);
 			break;
