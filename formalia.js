@@ -90,6 +90,7 @@ $.fn.formalia = function(actionOrOptions) {
 			break;
 		}
 	});
+	return this;
 };
  
 }(jQuery, window));
