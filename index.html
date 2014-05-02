@@ -1,1 +1,142 @@
-My Github Page
+<!DOCTYPE html>
+<html>
+<head>
+<title>formalia.js</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="formalia.js"></script>
+<script>
+$(function() {
+	$('form').formalia();
+});
+</script>
+<style type="text/css">
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif, tahoma;
+}
+header, nav, article, section {
+	padding: 20px;
+}
+
+header {
+	background-color: #FF0000;
+	padding-bottom: 10px;
+}
+
+nav {
+	background-color: #FF00FF;
+	padding-top: 10px;
+}
+
+ul {
+	padding: inherit;
+}
+
+@media (min-width: 500px) {
+	form {
+		display: table;
+	}
+
+	form div {
+		display: table-row;
+	}
+
+	form div label, form div input {
+		display: table-cell;
+	}
+
+	form div label:after {
+		content: ":";
+	}
+
+	form div input {
+		margin-left: 10px;
+	}
+}
+@media (max-width: 499px) {
+	form {
+		display: block;
+	}
+
+	form div {
+		display: block;
+	}
+
+	form div label {
+		font-weight: bold;
+		display: block;
+	}
+}
+</style>
+</head>
+<body>
+<header>
+	<h1>formalia.js</h1>
+	<h2>Memorize your forms. Helps you recover from everyday emergencies.</h2>
+</header>
+
+<nav>
+	<a href="#introduction">Introduction</a>
+	<a href="#example">Example</a>
+	<a href="https://github.com/lebbe/formalia.js">Code</a>
+</nav>
+
+<article id="introduction">
+	<h1>Introduction</h1>
+	<p>
+		formalia.js stores the content filled into a form, and recover this information when a user re-visits the page. This is the prevent that the end-user loses whatever she typed into the form when she is experiencing any one of these everyday emergencies:
+		<ul>
+			<li>The browser crashed.</li>
+			<li>Forgot that I was filling out a form in another tab, closed browser.</li>
+			<li>Accidentally clicked back-button.</li>
+			<li>Accidentally clicked a link.</li>
+		</ul>
+	</p>
+	<p>
+		formalia.js is a jQuery plugin still in its infancy. There is a bunch of features that should be implemented before it is production-ready, including:
+		<ul>
+			<li>Support ajax-loaded forms.</li>
+			<li>Simple user interface to save and load forms</li>
+			<ul>
+				<li>For instance, when user revisits a page with a form, a message such as "Previously unsubmittet content in this form detected. Autofill form with content?"</li>
+				<li>A button for clearing form, with an undo function (or something).</li>
+			</ul>
+		</ul>
+	</p>
+
+	<p>
+		Below is an example form. If you fill information into the form, navigate away from this page, and navigate back again, you should see the form being filled with this information.
+	</p>
+</article>
+
+<section id="example">
+	<form name="formaliaExample">
+		<div class="inputItem">
+			<label>Name</label>
+			<input type="text" name="test1">
+		</div>
+		<div class="inputItem">
+			<label>Address</label>
+			<input type="text" name="test2">
+		</div>
+		<div class="inputItem">
+			<label>Phone-number</label>
+			<input type="number" name="test3">
+		</div>
+		<div class="inputItem">
+			<label>Favorite color</label>
+			<input type="color" name="test4">
+		</div>
+	</form>
+</section>
+
+<footer></footer>
+
+
+</body>
+</html>
+
