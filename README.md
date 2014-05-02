@@ -10,3 +10,8 @@ This is a jQuery plugin, use it like this:
 > $(selector).formalia();
 
 The plugin uses the form NAME and ID attributes to identify them. It caches form content on onchange events within localStorage.
+
+
+
+
+See an example page at http://lebbe.github.io/formalia.js/
